@@ -8,11 +8,12 @@ RUN apt-get update
 RUN apt-get install -y curl zip unzip git
 
 # Adding deploy key
-RUN mkdir -p ~/.ssh
-COPY docker-gid ~/.ssh/id_rsa
-RUN chmod 600 ~/.ssh/id_rsa
-RUN ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-RUN ssh-keyscan -H gitlab.com >> ~/.ssh/known_hosts
+RUN mkdir -p /root/.ssh
+COPY docker-gid /root/.ssh/id_rsa
+RUN ls -al /root/.ssh
+RUN chmod 600 /root/.ssh/id_rsa
+RUN ssh-keyscan -H github.com >> /root/.ssh/known_hosts
+RUN ssh-keyscan -H gitlab.com >> /root/.ssh/known_hosts
 
 
 # Get Theme

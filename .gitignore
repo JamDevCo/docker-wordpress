@@ -1,0 +1,7 @@
+.htaccess
+*.php
+license.txt
+readme.html
+wp-admin/
+wp-content/
+wp-includes/
