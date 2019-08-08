@@ -39,7 +39,7 @@ services:
     depends_on:
       - db
     build: .
-    image: realworldio/wordpress
+    image: realworldio/wordpress:1.1.0
     ports:
       - '8080:80'
     restart: always

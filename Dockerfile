@@ -5,7 +5,14 @@ LABEL maintainer="Oshane Bailey b4.oshany@gmail.com"
 RUN apt-get update
 
 # Install packages
-RUN apt-get install -y curl zip unzip git
+RUN apt-get install -y curl zip unzip git wget
+
+# Install Wordpress CLI
+RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -O /root/wp-cli.phar
+RUN php /root/wp-cli.phar --info
+RUN chmod +x /root/wp-cli.phar
+RUN mv /root/wp-cli.phar /usr/local/bin/wp
+RUN wp --info
 
 # Adding deploy key
 RUN mkdir -p /root/.ssh
